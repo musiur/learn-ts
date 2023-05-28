@@ -5,10 +5,10 @@ import { Fragment, ReactNode } from "react";
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <Fragment>
-      <Navbar />
-      {children}
-      <Footer />
-    </Fragment>
+        <Navbar />
+        {children}
+        <Footer />
+      </Fragment>
   );
 };
 

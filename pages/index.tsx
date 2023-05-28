@@ -1,60 +1,17 @@
+
+import CounterReducer, { COUNT_ACTIONS, InitialCounterState } from "@/reducers/counter";
+import TodoReducer, { InitialTodoState } from "@/reducers/todo";
 import { FunctionComponent, useReducer } from "react";
 
-// An enum with all the types of actions to use in our reducer
-enum ACTIONS {
-  INCREMENT = "increment",
-  DECREMENT = "decrement",
-}
-
-// An interface for our actions
-interface CountAction {
-  type: ACTIONS;
-  payload: number;
-}
-
-// An interface for our state
-interface CountState {
-  count: number;
-}
-
-// Our reducer function that uses a switch statement to handle our actions
-const counterReducer = (state: CountState, action: CountAction) => {
-  // destructuring action type and payload
-  const { type, payload } = action;
-
-  switch (type) {
-    // incrementing
-    case ACTIONS.INCREMENT:
-      return {
-        ...state,
-        count: state.count + payload,
-      };
-    // decrementing
-    case ACTIONS.DECREMENT:
-      return {
-        ...state,
-        count: state.count - payload,
-      };
-    default:
-      console.log("Unknown action type in counterReducer");
-      return state
-  }
-};
 
 const Home: FunctionComponent = () => {
-  // our counter state with reducer
-  const [counter, dispatch] = useReducer(counterReducer, { count: 0 });
-
-  // incrementer
+  const [counter, dispatch] = useReducer(CounterReducer, InitialCounterState)
   const incrementCount = () => {
-    dispatch({ type: ACTIONS.INCREMENT, payload: 5 })
-  };
-
-  // decrementer
+    dispatch({type: COUNT_ACTIONS.INCREMENT, payload: 5})
+  }
   const decrementCount = () => {
-    dispatch({ type: ACTIONS.DECREMENT, payload: 5 })
-  };
-
+    dispatch({type: COUNT_ACTIONS.DECREMENT, payload: 5})
+  }
   return (
     <section className="container">
       <h1 className="text-3xl font-bold my-5">Count</h1>
