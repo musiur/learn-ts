@@ -9,13 +9,13 @@ const Works = () => {
 
   // adding new todo item
   const AddTodo = () => {
-    dispatch({ type: TODO_ACTIONS.ADD, payload: { id: 0, text } });
+    text && dispatch({ type: TODO_ACTIONS.ADD, payload: { id: 0, text } });
     setText("");
   };
 
   // updating todo item with id
   const UpdateTodo = (id: number) => {
-    dispatch({ type: TODO_ACTIONS.UPDATE, payload: { id, text } });
+    text && dispatch({ type: TODO_ACTIONS.UPDATE, payload: { id, text } });
     setText("");
     setUpdate(0)
   };
