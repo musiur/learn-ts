@@ -1,6 +1,5 @@
 
 import CounterReducer, { COUNT_ACTIONS, InitialCounterState } from "@/reducers/counter";
-import TodoReducer, { InitialTodoState } from "@/reducers/todo";
 import { FunctionComponent, useReducer } from "react";
 
 
